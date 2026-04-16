@@ -1,0 +1,60 @@
+# Default values for kernel-module-management
+
+# Global settings
+global:
+  # Image registry override
+  imageRegistry: ""
+  # Image pull secrets
+  imagePullSecrets: []
+
+# Controller manager deployment
+controller:
+  replicas: 1
+  image:
+    registry: gcr.io
+    repository: k8s-staging-kmm/kernel-module-management-operator
+    tag: v20251214-v2.5.0
+  resources:
+    limits:
+      cpu: 500m
+      memory: 384Mi
+    requests:
+      cpu: 10m
+      memory: 64Mi
+
+# Webhook server deployment
+webhook:
+  replicas: 1
+  image:
+    registry: gcr.io
+    repository: k8s-staging-kmm/kernel-module-management-webhook-server
+    tag: v20251214-v2.5.0
+  resources:
+    limits:
+      cpu: 500m
+      memory: 384Mi
+    requests:
+      cpu: 10m
+      memory: 64Mi
+
+# Worker image (used by controller for module loading)
+worker:
+  image:
+    registry: gcr.io
+    repository: k8s-staging-kmm/kernel-module-management-worker
+    tag: v20251214-v2.5.0
+
+# Sign image (used for module signing)
+sign:
+  image:
+    registry: gcr.io
+    repository: k8s-staging-kmm/kernel-module-management-signimage
+    tag: v20251214-v2.5.0
+
+# Build image (Kaniko for building modules)
+build:
+  image:
+    registry: gcr.io
+    repository: kaniko-project/executor
+    tag: latest
+

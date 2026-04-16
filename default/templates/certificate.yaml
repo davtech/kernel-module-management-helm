@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  labels:
+    app.kubernetes.io/component: kmm
+    app.kubernetes.io/created-by: kernel-module-management
+    app.kubernetes.io/instance: serving-cert
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: kmm
+    app.kubernetes.io/part-of: kmm
+  name: kmm-operator-serving-cert
+  namespace: {{ .Release.Namespace }}
+spec:
+  dnsNames:
+    - kmm-operator-webhook-service.kmm-operator-system.svc
+    - kmm-operator-webhook-service.kmm-operator-system.svc.cluster.local
+  issuerRef:
+    kind: Issuer
+    name: kmm-operator-selfsigned-issuer
+  secretName: kmm-operator-webhook-server-cert

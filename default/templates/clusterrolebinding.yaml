@@ -1,0 +1,50 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/component: kmm
+    app.kubernetes.io/name: kmm
+    app.kubernetes.io/part-of: kmm
+  name: kmm-operator-event-recorder-clusterrolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kmm-operator-event-recorder-clusterrole
+subjects:
+  - kind: ServiceAccount
+    name: kmm-operator-controller
+    namespace: {{ .Release.Namespace }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/component: kmm
+    app.kubernetes.io/name: kmm
+    app.kubernetes.io/part-of: kmm
+  name: kmm-operator-manager-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kmm-operator-manager-role
+subjects:
+  - kind: ServiceAccount
+    name: kmm-operator-controller
+    namespace: {{ .Release.Namespace }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/component: kmm
+    app.kubernetes.io/name: kmm
+    app.kubernetes.io/part-of: kmm
+  name: kmm-operator-proxy-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kmm-operator-proxy-role
+subjects:
+  - kind: ServiceAccount
+    name: kmm-operator-controller
+    namespace: {{ .Release.Namespace }}

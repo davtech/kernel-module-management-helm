@@ -1,0 +1,73 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from: kmm-operator-system/kmm-operator-serving-cert
+  labels:
+    app.kubernetes.io/component: kmm
+    app.kubernetes.io/name: kmm
+    app.kubernetes.io/part-of: kmm
+  name: kmm-operator-validating-webhook-configuration
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: kmm-operator-webhook-service
+        namespace: {{ .Release.Namespace }}
+        path: /validate--v1-namespace
+    failurePolicy: Fail
+    name: namespace-deletion.kmm.sigs.k8s.io
+    namespaceSelector:
+      matchLabels:
+        kmm.node.k8s.io/contains-modules: ""
+    rules:
+      - apiGroups:
+          - ""
+        apiVersions:
+          - v1
+        operations:
+          - DELETE
+        resources:
+          - namespaces
+    sideEffects: None
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: kmm-operator-webhook-service
+        namespace: {{ .Release.Namespace }}
+        path: /validate-kmm-sigs-x-k8s-io-v1beta1-module
+    failurePolicy: Fail
+    name: vmodule.kb.io
+    rules:
+      - apiGroups:
+          - kmm.sigs.x-k8s.io
+        apiVersions:
+          - v1beta1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - modules
+    sideEffects: None
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      service:
+        name: kmm-operator-webhook-service
+        namespace: {{ .Release.Namespace }}
+        path: /validate-kmm-sigs-x-k8s-io-v1beta2-preflightvalidation
+    failurePolicy: Fail
+    name: vpreflightvalidation.kb.io
+    rules:
+      - apiGroups:
+          - kmm.sigs.x-k8s.io
+        apiVersions:
+          - v1beta2
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - preflightvalidations
+    sideEffects: None

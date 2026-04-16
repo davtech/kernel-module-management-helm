@@ -1,0 +1,27 @@
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Build artifacts
+dist/
+build/
+*.tgz
+
+# Helm specific
+*.lock
+
+# Testing
+test-output/
+rendered.yaml
+values-*.yaml.bak

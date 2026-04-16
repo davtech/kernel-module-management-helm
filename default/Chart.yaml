@@ -1,0 +1,22 @@
+apiVersion: v2
+name: kernel-module-management
+description: A Helm chart for Kernel Module Management (KMM) Operator
+type: application
+version: 2.5.0
+appVersion: "2.5.0"
+
+keywords:
+  - kernel
+  - modules
+  - kmm
+  - operator
+  - kubernetes
+
+maintainers:
+  - name: david-bastos
+    email: davtechh@gmail.com
+
+sources:
+  - https://github.com/kubernetes-sigs/kernel-module-management
+
+home: https://github.com/kubernetes-sigs/kernel-module-management
