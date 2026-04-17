@@ -51,6 +51,11 @@ fi
 
 log_info "Starting sync for variant: ${VARIANT}, tag: ${UPSTREAM_TAG}"
 
+# Limpar arquivos antigos
+log_info "Cleaning old templates and CRDs..."
+rm -f "$CHART_DIR/templates"/*.yaml
+rm -f "$CHART_DIR/crds"/*.yaml
+
 # 1. Clone upstream repository at target tag
 log_info "Cloning upstream repository..."
 if ! git clone --depth 1 --branch "$UPSTREAM_TAG" "$UPSTREAM_REPO" "$WORK_DIR/kmm" 2>/dev/null; then
