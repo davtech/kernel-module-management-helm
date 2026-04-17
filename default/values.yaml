@@ -13,7 +13,7 @@ controller:
   image:
     registry: gcr.io
     repository: k8s-staging-kmm/kernel-module-management-operator
-    tag: v20251214-v2.5.0
+    tag: v20260415-v2.6.0
   resources:
     limits:
       cpu: 500m
@@ -28,7 +28,7 @@ webhook:
   image:
     registry: gcr.io
     repository: k8s-staging-kmm/kernel-module-management-webhook-server
-    tag: v20251214-v2.5.0
+    tag: v20260415-v2.6.0
   resources:
     limits:
       cpu: 500m
@@ -42,14 +42,14 @@ worker:
   image:
     registry: gcr.io
     repository: k8s-staging-kmm/kernel-module-management-worker
-    tag: v20251214-v2.5.0
+    tag: v20260415-v2.6.0
 
 # Sign image (used for module signing)
 sign:
   image:
     registry: gcr.io
     repository: k8s-staging-kmm/kernel-module-management-signimage
-    tag: v20251214-v2.5.0
+    tag: v20260415-v2.6.0
 
 # Build image (Kaniko for building modules)
 build:

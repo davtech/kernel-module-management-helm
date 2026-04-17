@@ -47,10 +47,10 @@ helm install kmm ./default \
 
 ```bash
 # Download package
-wget https://github.com/davtech/kernel-module-management-helm/releases/download/v2.5.0/kernel-module-management-2.5.0.tgz
+wget https://github.com/davtech/kernel-module-management-helm/releases/download/v2.6.0/kernel-module-management-2.6.0.tgz
 
 # Install
-helm install kmm kernel-module-management-2.5.0.tgz \
+helm install kmm kernel-module-management-2.6.0.tgz \
   --create-namespace \
   --namespace kmm-operator-system
 ```
@@ -231,8 +231,8 @@ echo "Template rendered successfully to /tmp/rendered.yaml"
 If you have kustomize and yq installed:
 
 ```bash
-# Sync with upstream v2.5.0
-./sync_script.sh v2.5.0 default
+# Sync with upstream v2.6.0
+./sync_script.sh v2.6.0 default
 ```
 
 ## Step 3: Install the Chart

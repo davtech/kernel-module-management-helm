@@ -66,7 +66,7 @@ The following table lists the configurable parameters and their default values.
 | `controller.replicas` | Number of controller replicas | `1` |
 | `controller.image.registry` | Controller image registry | `gcr.io` |
 | `controller.image.repository` | Controller image repository | `k8s-staging-kmm/kernel-module-management-operator` |
-| `controller.image.tag` | Controller image tag | `v20251214-v2.5.0` |
+| `controller.image.tag` | Controller image tag | `v20260415-v2.6.0` |
 | `controller.resources.limits.cpu` | CPU limit | `500m` |
 | `controller.resources.limits.memory` | Memory limit | `384Mi` |
 | `controller.resources.requests.cpu` | CPU request | `10m` |
@@ -79,7 +79,7 @@ The following table lists the configurable parameters and their default values.
 | `webhook.replicas` | Number of webhook replicas | `1` |
 | `webhook.image.registry` | Webhook image registry | `gcr.io` |
 | `webhook.image.repository` | Webhook image repository | `k8s-staging-kmm/kernel-module-management-webhook-server` |
-| `webhook.image.tag` | Webhook image tag | `v20251214-v2.5.0` |
+| `webhook.image.tag` | Webhook image tag | `v20260415-v2.6.0` |
 | `webhook.resources.limits.cpu` | CPU limit | `500m` |
 | `webhook.resources.limits.memory` | Memory limit | `384Mi` |
 | `webhook.resources.requests.cpu` | CPU request | `10m` |
@@ -91,7 +91,7 @@ The following table lists the configurable parameters and their default values.
 |-----------|-------------|---------|
 | `worker.image.registry` | Worker image registry | `gcr.io` |
 | `worker.image.repository` | Worker image repository | `k8s-staging-kmm/kernel-module-management-worker` |
-| `worker.image.tag` | Worker image tag | `v20251214-v2.5.0` |
+| `worker.image.tag` | Worker image tag | `v20260415-v2.6.0` |
 
 ### Sign Image Parameters
 
@@ -99,7 +99,7 @@ The following table lists the configurable parameters and their default values.
 |-----------|-------------|---------|
 | `sign.image.registry` | Sign image registry | `gcr.io` |
 | `sign.image.repository` | Sign image repository | `k8s-staging-kmm/kernel-module-management-signimage` |
-| `sign.image.tag` | Sign image tag | `v20251214-v2.5.0` |
+| `sign.image.tag` | Sign image tag | `v20260415-v2.6.0` |
 
 ### Build Image Parameters
 

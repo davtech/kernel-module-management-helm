@@ -216,7 +216,7 @@ ls -la config/default/
 **Wrong image tags after sync:**
 ```bash
 # Check upstream Makefile for correct image tags
-curl -sL https://raw.githubusercontent.com/kubernetes-sigs/kernel-module-management/v2.5.0/Makefile | grep IMAGE_TAG
+curl -sL https://raw.githubusercontent.com/kubernetes-sigs/kernel-module-management/v2.6.0/Makefile | grep IMAGE_TAG
 ```
 
 ### Chart Validation Errors
@@ -330,10 +330,10 @@ helm install kmm-operator ./default \
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | `controllerManager.replicas` | Number of operator replicas | `1` |
-| `controllerManager.image.tag` | Operator image tag | `v2.5.0` |
+| `controllerManager.image.tag` | Operator image tag | `v2.6.0` |
 | `controllerManager.resources` | Resource limits/requests | See values.yaml |
 | `controllerManager.logLevel` | Log verbosity (0-5) | `2` |
-| `kmodManager.image.tag` | Kmod worker image tag | `v2.5.0` |
+| `kmodManager.image.tag` | Kmod worker image tag | `v2.6.0` |
 | `webhook.enabled` | Enable admission webhooks | `true` |
 | `global.imageRegistry` | Override image registry | `""` |
 
@@ -500,7 +500,7 @@ To add a new installation variant (e.g., `default-hub`):
 
 4. **Run sync script:**
    ```bash
-   ./sync_script.sh v2.5.0 default-hub
+   ./sync_script.sh v2.6.0 default-hub
    ```
 
 5. **Customize values.yaml:**
@@ -520,7 +520,7 @@ If `helm lint` shows errors, check:
 **Problem:** Script fails to clone repository
 ```bash
 # Solution: Check tag exists
-git ls-remote --tags https://github.com/kubernetes-sigs/kernel-module-management.git | grep v2.5.0
+git ls-remote --tags https://github.com/kubernetes-sigs/kernel-module-management.git | grep v2.6.0
 ```
 
 **Problem:** kustomize build fails
